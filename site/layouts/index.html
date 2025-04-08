@@ -3,13 +3,13 @@
     <div class="container">
         <h1>Tutti i Post del Blog</h1>
         <hr>
-        {{ range .Site.RegularPages }}
+        {{ range where .Site.RegularPages "Section" "post" }}
         <div class="row mb-4">
             <div class="col-sm">
                 <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
                 <p>{{ .Params.description }}</p>
                 <a href="{{ .Permalink }}" class="btn btn-primary">Leggi di più</a>
-            <hr>
+                <hr>
             </div>
         </div>
         {{ end }}
